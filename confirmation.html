@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .confirmation-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-top: 50px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="confirmation-container">
+          <h2 class="text-center mb-4">Confirmation de contact</h2>
+          <div class="alert alert-success" role="alert">
+            Votre demande de contact a été envoyée avec succès !
+          </div>
+          <div class="confirmation-details">
+            <p><strong>Nom:</strong> <span id="name"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Numéro de téléphone:</strong> <span id="phoneNumber"></span></p>
+            <p><strong>Pays:</strong> <span id="country"></span></p>
+            <p><strong>Âge:</strong> <span id="age"></span></p>
+            <p><strong>Message:</strong> <span id="message"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Récupère les paramètres de l'URL (les données envoyées depuis le formulaire)
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Remplit les champs de la page avec les données récupérées
+    document.getElementById("name").innerText = urlParams.get("name");
+    document.getElementById("email").innerText = urlParams.get("email");
+    document.getElementById("phoneNumber").innerText = urlParams.get("phoneNumber");
+    document.getElementById("country").innerText = urlParams.get("country");
+    document.getElementById("age").innerText = urlParams.get("age");
+    document.getElementById("message").innerText = urlParams.get("message");
+  </script>
+</body>
+</html>
